@@ -107,3 +107,9 @@ Foi criado uma interface que estende `JpaRepository` para interagir com a tabela
 
 [TaskRepository.java](./src/main/java/com/app/todo/repository/TaskRepository.java)
 
+Foi criado os serviços de implementação da lógica de negócios:
+
+Interface: [TaskService.java](./src/main/java/com/app/todo/service/TaskService.java)
+
+Implementação: [TaskServiceImpl.java](./src/main/java/com/app/todo/service/TaskServiceImpl.java)
+
