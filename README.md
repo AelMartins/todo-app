@@ -88,3 +88,17 @@ Foi utilizado o [Spring Initializr](https://start.spring.io/) para criar um novo
 ```
 
 Foi adicionado [Task.java](./src/main/java/com/app/todo/model/Task.java)
+
+Foi configurado o Spring Boot para se conectar ao banco de dados PostgreSQL criado.
+Por questões de segurança as informações de conexões não foram adicionadas, mas você pode encontrar o modelo em [application.properties.example](./src/main/resources/application.properties.example).
+
+```properties
+spring.datasource.url=                      : URL de conexão com o banco de dados PostgreSQL.
+spring.datasource.username=                 : Nome de usuário do banco de dados.
+spring.datasource.password=                 : Senha do banco de dados.
+spring.datasource.driver-class-name=        : Driver JDBC do PostgreSQL.
+spring.jpa.hibernate.ddl-auto=update        : Permite que o Hibernate atualize o schema do banco de dados com base nas entidades (use com cautela em produção).
+spring.jpa.properties.hibernate.dialect=    : Dialeto do Hibernate para o PostgreSQL.
+spring.jpa.show-sql=true                    : Exibe as queries SQL geradas pelo Hibernate no console.
+spring.jpa.format_sql=true                  : Formata as queries SQL exibidas no console.
+```
