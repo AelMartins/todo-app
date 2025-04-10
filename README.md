@@ -36,3 +36,31 @@ A API backend permite as seguintes operações (CRUD - Create, Read, Update, Del
 * **Banco de Dados:** PostgreSQL
 
 ***
+
+## Etapas do Desenvolvimento
+
+### 1. Criação do Banco de Dados
+
+Configuraremos o banco de dados PostgreSQL para armazenar as informações das tarefas.
+
+1.  **Instalação do PostgreSQL:** Foi realizado a instalação do PostgreSQL no ambiente de desenvolvimento.
+
+2.  **Criação do Banco de Dados:** Através da ferramenta de administração do banco de dados, foi criado um novo banco de dados chamado `todo_db`.
+
+    ```sql
+    CREATE DATABASE todo_db;
+    ```
+
+3.  **Criação da Tabela `tasks` (tarefas):** Foi definido a seguinte estrutura de tabela para armazenar as tarefas:
+
+    ```sql
+    CREATE TABLE tasks (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT,
+        status VARCHAR(50) NOT NULL,
+        observations TEXT,
+        criated_date TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_date TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    ```
