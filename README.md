@@ -86,3 +86,5 @@ Foi utilizado o [Spring Initializr](https://start.spring.io/) para criar um novo
     - Spring Data JPA
     - PostgreSQL Driver
 ```
+
+Foi adicionado [Task.java](./src/main/java/com/app/todo/model/Task.java)
