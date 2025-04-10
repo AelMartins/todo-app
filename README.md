@@ -64,3 +64,25 @@ Configuraremos o banco de dados PostgreSQL para armazenar as informações das t
         updated_date TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
     ```
+
+### 2. Criação do Projeto Spring Boot
+
+Foi utilizado o [Spring Initializr](https://start.spring.io/) para criar um novo projeto Spring Boot com as configurações: 
+
+```yaml
+- Project: Maven
+- Language: Java
+- Spring Boot: 3.4.4
+- Project Metadata:
+    - Group: com.app
+    - Artifact: todo
+    - Name: todo
+    - Description: A daily task manager app
+    - Package name: com.app.todo
+    - Packaging: Jar
+    - Java: 17
+- Dependencies: |
+    - Spring Web
+    - Spring Data JPA
+    - PostgreSQL Driver
+```
