@@ -102,3 +102,8 @@ spring.jpa.properties.hibernate.dialect=    : Dialeto do Hibernate para o Postgr
 spring.jpa.show-sql=true                    : Exibe as queries SQL geradas pelo Hibernate no console.
 spring.jpa.format_sql=true                  : Formata as queries SQL exibidas no console.
 ```
+
+Foi criado uma interface que estende `JpaRepository` para interagir com a tabela `tasks`:
+
+[TaskRepository.java](./src/main/java/com/app/todo/repository/TaskRepository.java)
+
