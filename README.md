@@ -113,3 +113,4 @@ Interface: [TaskService.java](./src/main/java/com/app/todo/service/TaskService.j
 
 Implementação: [TaskServiceImpl.java](./src/main/java/com/app/todo/service/TaskServiceImpl.java)
 
+Foi criado `controller` []() para expor os endpoints da API.
