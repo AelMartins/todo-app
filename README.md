@@ -118,3 +118,17 @@ Foi criado `controller` []() para expor os endpoints da API.
 Adicionado script de test do serviço de tarefas, [TaskServiceImplTest.java](./src/test/java/com/app/todo/service/TaskServiceImplTest.java).
 
 Adicionado script de test do controller da aplicação, [TaskControllerTest.java](./src/test/java/com/app/todo/controller/TaskControllerTest.java).
+
+Com um "Cliente HTTP" você consegue interagir com a aplicação.
+- Escolha um metodo HTTP (ex. POST);
+- Defina a URL como `http://localhost:8080/api/tasks``;
+- E monte um corpo da requisição (JSON):
+
+> ```json
+> {
+>     "name": "Fazer compras",
+>     "description": "Comprar itens para o jantar",
+>     "status": "Pendente",
+>     "observations": "Verificar a lista antes de sair"
+> }
+> ```
