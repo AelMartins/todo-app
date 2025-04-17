@@ -1,18 +1,27 @@
 package com.app.todo.service;
 
-import com.app.todo.model.Task;
-import com.app.todo.repository.TaskRepository;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.mockito.ArgumentMatchers.any;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
+
+import com.app.todo.model.Task;
+import com.app.todo.repository.TaskRepository;
 
 public class TaskServiceImplTest {
 
@@ -36,11 +45,13 @@ public class TaskServiceImplTest {
 
     @Test
     void createTask_needToSaveTeskAndReturnSavedTesk() {
-        when(taskRepository.save(any(Task.class))).thenReturn(task1);
-        Task newTask = TaskService.createTask(new Task("Nova Tarefa", "Nova Descrição", "Pendente", ""));
+        Task taskToSave = new Task("Nova Tarefa", "Nova Descrição", "Pendente", "");
+        taskToSave.setId(3L);
+        when(taskRepository.save(any(Task.class))).thenReturn(taskToSave);
+        Task newTask = TaskService.createTask(taskToSave);
         assertNotNull(newTask.getId());
         assertEquals("Nova Tarefa", newTask.getName());
-        verify(taskRepository, times(1)).save(any(Task.class));
+        verify(taskRepository, times(1)).save(taskToSave);
     }
 
     @Test
