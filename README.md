@@ -116,3 +116,5 @@ Implementação: [TaskServiceImpl.java](./src/main/java/com/app/todo/service/Tas
 Foi criado `controller` []() para expor os endpoints da API.
 
 Adicionado script de test do serviço de tarefas, [TaskServiceImplTest.java](./src/test/java/com/app/todo/service/TaskServiceImplTest.java).
+
+Adicionado script de test do controller da aplicação, [TaskControllerTest.java](./src/test/java/com/app/todo/controller/TaskControllerTest.java).
