@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.doNothing;
 
@@ -50,7 +51,7 @@ public class TaskControllerTest {
     void searchTaskById_needToReturnExistentTaskAndOkStatus() throws Exception {
         Task task = new Task("Tarefa Teste", "Descrição Teste", "Em Andamento", "Obs");
         task.setId(1L);
-        when(taskService.searchTaskById(1L)).thenReturn(Optional.of(task));
+        when(taskService.searchTaskById(eq(1L))).thenReturn(Optional.of(task));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/tasks/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -60,7 +61,7 @@ public class TaskControllerTest {
 
     @Test
     void searchTaskById_needToReturnNotFoundStatusIfTaskDontExist() throws Exception {
-        when(taskService.searchTaskById(1L)).thenReturn(Optional.empty());
+        when(taskService.searchTaskById(eq(1L))).thenReturn(Optional.empty());
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/tasks/1"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
@@ -84,7 +85,7 @@ public class TaskControllerTest {
         existentTask.setId(1L);
         Task updatedTask = new Task("Tarefa Nova", "Desc Nova", "Concluída", "Atualizado");
         updatedTask.setId(1L);
-        when(taskService.updateTask(1L, any(Task.class))).thenReturn(updatedTask);
+        when(taskService.updateTask(eq(1L), any(Task.class))).thenReturn(updatedTask);
 
         mockMvc.perform(MockMvcRequestBuilders.put("/api/tasks/1")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -97,7 +98,7 @@ public class TaskControllerTest {
 
     @Test
     void updateTask_needToReturnNotFoundStatusIfTaskDontExist() throws Exception {
-        when(taskService.updateTask(1L, any(Task.class))).thenReturn(null);
+        when(taskService.updateTask(eq(1L), any(Task.class))).thenReturn(null);
 
         mockMvc.perform(MockMvcRequestBuilders.put("/api/tasks/1")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -107,7 +108,7 @@ public class TaskControllerTest {
 
     @Test
     void deleteTask_needToReturnNoContentStatus() throws Exception {
-        doNothing().when(taskService).deleteTask(1L);
+        doNothing().when(taskService).deleteTask(eq(1L)); // Adicionado eq para consistência, embora não seja estritamente necessário aqui
 
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/tasks/1"))
                 .andExpect(MockMvcResultMatchers.status().isNoContent());
